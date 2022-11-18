@@ -1,0 +1,52 @@
+spring:
+  profiles: dev
+  datasource:
+    driver-class-name: oracle.jdbc.OracleDriver
+    username: hr
+    url: jdbc:oracle:thin:@localhost:1521/orclpdb
+    password: hr
+  jpa:
+    database-platform: org.hibernate.dialect.Oracle12cDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: 'true'
+---
+  spring:
+    profiles: qa
+    datasource:
+      driver-class-name: oracle.jdbc.OracleDriver
+      username: hr
+      url: jdbc:oracle:thin:@localhost:1521/orclpdbqa
+      password: hr
+    jpa:
+      database-platform: org.hibernate.dialect.Oracle12cDialect
+      hibernate:
+        ddl-auto: update
+      show-sql: 'true'
+---
+spring:
+  profiles: prod
+  datasource:
+    driver-class-name: oracle.jdbc.OracleDriver
+    username: hr
+    url: jdbc:oracle:thin:@localhost:1521/orclpdbprod
+    password: hr
+  jpa:
+    database-platform: org.hibernate.dialect.Oracle12cDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: 'true'
+---
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        exclude: "env,beans"
+welcome:
+  message: <h3>Welcome to Spring-Boot-Actions!!!!<h3>
+server:
+  port: '8181'
+spring:
+  profiles:
+    active: dev

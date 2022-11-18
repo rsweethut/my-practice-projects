@@ -1,0 +1,27 @@
+server:
+  port: 8091
+
+spring:
+  application:
+    name: USER-SERVICE
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    instance:
+      hostname: localhost
+---
+spring:
+  datasource:
+    driver-class-name: oracle.jdbc.OracleDriver
+    username: hr
+    url: jdbc:oracle:thin:@localhost:1521/orclpdb
+    password: hr
+  jpa:
+    database-platform: org.hibernate.dialect.Oracle12cDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: 'true'
